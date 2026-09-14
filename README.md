@@ -1,9 +1,5 @@
 # CSPC
 
-## PW1 --- Lab A
-
-# CSPC
-
 ## PW1 — Lab A
 
 ### Tests
