@@ -48,3 +48,24 @@ ax3.legend()
 plt.tight_layout()
 plt.savefig('motion.png')
 print("Plot saved successfully as 'motion.png'!")
+
+# --- BONUS: 2D Trajectory ---
+traj_data = np.loadtxt('trajectory.csv', delimiter=',', skiprows=1)
+t_traj, x_traj, y_traj = traj_data[:, 0], traj_data[:, 1], traj_data[:, 2]
+
+vx = np.gradient(x_traj, t_traj)
+vy = np.gradient(y_traj, t_traj)
+speed = np.sqrt(vx**2 + vy**2)
+
+fig_b, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+ax1.plot(x_traj, y_traj, color='purple')
+ax1.set(xlabel='X (m)', ylabel='Y (m)', title='2D Path')
+ax1.grid(True)
+
+ax2.plot(t_traj, speed, color='green')
+ax2.set(xlabel='Time (s)', ylabel='Speed (m/s)', title='Speed over Time')
+ax2.grid(True)
+
+plt.tight_layout()
+plt.savefig('trajectory.png')
+print("Bonus plot saved!")
